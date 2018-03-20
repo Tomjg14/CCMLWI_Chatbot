@@ -10,11 +10,12 @@ import json
 import requests
 import time
 import urllib
+from config import Config
 # python3: urllib.parse.quote_plus
 # python2: urllib.pathname2url
-
-TOKEN = "517144678:AAGghpS2pKsnDIFpxRHPZsOWi5GJ_xYV2Co" # don't put this in your repo! (put in config, then import config)
-URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+c = Config()
+TOKEN = c.getToken() # don't put this in your repo! (put in config, then import config)
+URL = c.getURL()
 
 #########################################
 #   URL van de bot: t.me/Username12bot  #
