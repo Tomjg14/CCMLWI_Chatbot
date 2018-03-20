@@ -50,6 +50,7 @@ def get_last_update_id(updates):
 
 def handle_updates(updates):
     for update in updates["result"]:
+        print(update["message"].keys())
         text = update["message"]["text"]
         chat = update["message"]["chat"]["id"]
         items = db.get_items(chat)  ##

@@ -5,8 +5,6 @@ import requests
 import urllib
 from config import Config
 
-from pyowm import OWM
-
 class WeatherBot:
 
     def __init__(self):
@@ -15,7 +13,6 @@ class WeatherBot:
         self.OWMKEY = self.c.getOWMKEY()
         self.URL = self.c.getURL()
         self.db = DBHelper()
-        self.owm = OWM(self.OWMKEY)
 
     def initializeDB(self):
         self.db.setup()
@@ -45,21 +42,26 @@ class WeatherBot:
 
     def handle_updates(self,updates):
         for update in updates["result"]:
-            chatid = update["message"]["chat"]["id"]
-            attributes = update["message"].keys()
-            if "text" in attributes:
-                text = update["message"]["text"]
-                items = self.db.get_items(chatid)  ##
-                if text == "/start":
-                    self.send_message("Hi there! I am your personal Weather Bot, here to help you answer questions related to the weather. Just send me a location or placename to get started.", chatid)
-                elif text.startswith("/"):
-                    continue
-            elif "location" in attributes:
-                chat = update["message"]["chat"]["id"]
-                obs = self.getWeather(update["message"]["location"])
-                weather_message = self.createWeatherMessage(obs)
-                self.send_message(weather_message,chatid)
-                
+            text = update["message"]["text"]
+            chat = update["message"]["chat"]["id"]
+            items = self.db.get_items(chat)  ##
+            if text == "/done":
+                keyboard = self.build_keyboard(items)
+                self.send_message("Select an item to delete", chat, keyboard)
+            elif text == "/start":
+                self.send_message("Welcome to your personal To Do list. Send any text to me and I'll store it as an item. Send /done to remove items", chat)
+            elif text.startswith("/"):
+                continue
+            elif text in items:
+                self.db.delete_item(text, chat)  ##
+                items = self.db.get_items(chat)  ##
+                keyboard = self.build_keyboard(items)
+                self.send_message("Select an item to delete", chat, keyboard)
+            else:
+                self.db.add_item(text, chat)  ##
+                items = self.db.get_items(chat)  ##
+                message = "\n".join(items)
+                self.send_message(message, chat)
 
     def get_last_chat_id_and_text(self,updates):
         num_updates = len(updates["result"])
@@ -79,18 +81,3 @@ class WeatherBot:
         keyboard = [[item] for item in items]
         reply_markup = {"keyboard":keyboard, "one_time_keyboard": True}
         return json.dumps(reply_markup)
-
-    def getWeather(self,location):
-        obs = self.owm.weather_at_coords(location["latitude"],location["longitude"])
-        return obs
-
-    def createWeatherMessage(self,obs):
-        w = obs.get_weather()
-        l = obs.get_location()
-        status = str(w.get_detailed_status())
-        placename = str(l.get_name())
-        wtime = str(w.get_reference_time(timeformat='iso'))
-        temperature = str(w.get_temperature('celsius').get('temp'))
-        message = "Weather Status: "+status +" At "+placename+" "+wtime+" Temperature: "+ temperature+"C"
-        return message
-        
