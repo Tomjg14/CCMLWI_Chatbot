@@ -54,9 +54,13 @@ class WeatherBot:
                     self.send_message("Hi there! I am your personal Weather Bot, here to help you answer questions related to the weather. Just send me a location or placename to get started.", chatid)
                 elif text.startswith("/"):
                     continue
+                else:
+                    locations = self.getLocations(text)
+                    obs = self.getWeatherFromPlace(text)
+                    weather_message = self.createWeatherMessage(obs)
+                    self.send_message(weather_message,chatid)
             elif "location" in attributes:
-                chat = update["message"]["chat"]["id"]
-                obs = self.getWeather(update["message"]["location"])
+                obs = self.getWeatherFromLoc(update["message"]["location"])
                 weather_message = self.createWeatherMessage(obs)
                 self.send_message(weather_message,chatid)
                 
@@ -80,7 +84,16 @@ class WeatherBot:
         reply_markup = {"keyboard":keyboard, "one_time_keyboard": True}
         return json.dumps(reply_markup)
 
-    def getWeather(self,location):
+    def getWeatherFromPlace(self,place):
+        obs = self.owm.weather_at_place(place)
+        return obs
+
+    def getLocations(self,placename):
+        reg = self.owm.city_id_registry()
+        locations = reg.locations_for(placename)
+        return locations
+        
+    def getWeatherFromLoc(self,location):
         obs = self.owm.weather_at_coords(location["latitude"],location["longitude"])
         return obs
 
