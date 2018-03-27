@@ -8,3 +8,9 @@ WeatherBot by Tom Janssen Groesbeek and Max Moons
 ## Weather API
 
 ## Creating The Bot
+
+### Different Classes
+
+### Simple Workflow
+
+## Demo
