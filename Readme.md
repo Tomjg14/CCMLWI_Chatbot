@@ -1,2 +1,2 @@
-# CCMLWI_Chatbot
-Chatbot by Tom Janssen Groesbeek and Max Moons
+# WeatherBot
+WeatherBot by Tom Janssen Groesbeek and Max Moons
