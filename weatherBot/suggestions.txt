@@ -1,0 +1,8 @@
+misschien kunnen we word2vec gebruiken om:
+- te kijken of het weer meer betrekking heeft tot warm weer dan tot koud
+	- e.g. sunny --> more similar to warm than to cold
+
+Het zou fijn zijn als de bot een praatje kan houden met de user 
+dus niet alleen over weer praten of zoeken naar een locatie.
+	- misschien zouden we kunnen doen dat als de user een locatie stuurt
+	of vraag stelt dat dan de bot alleen naar het weer gaat zoeken

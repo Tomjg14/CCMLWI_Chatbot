@@ -3,10 +3,10 @@ class Config:
     def __init__(self):
         self.TOKEN = ""
         self.OWMKEY = ""
-        with open("token.txt") as infile:
+        with open("config/token.txt") as infile:
             for line in infile:
                 self.TOKEN = line
-        with open("owmkey.txt") as infile:
+        with open("config/owmkey.txt") as infile:
             for line in infile:
                 self.OWMKEY = line
         self.URL = "https://api.telegram.org/bot{}/".format(self.TOKEN)

@@ -13,5 +13,4 @@ def main(wb):
 
 if __name__ == '__main__':
     wb = WeatherBot()
-    wb.initializeDB()
     main(wb)
