@@ -51,21 +51,21 @@ Telegram but also other chat apps make it possible for the user to send a locati
 The cityID can be obtained by making use of the following code:
 
 ```
-reg = owm.city_id_registry()
-reg.ids_for(PLACENAME)
+>>> reg = owm.city_id_registry()
+>>> reg.ids_for(PLACENAME)
 ```
 
 Finally, the API can also be used to get a location object:
 
 ```
-reg = owm.city_id_registry()
-location = reg.locations_for(PLACENAME)
+>>> reg = owm.city_id_registry()
+>>> location = reg.locations_for(PLACENAME)
 ```
 
 In turn this location object can be used to get an city ID:
 
 ```
-city_id = location.get_ID()
+>>> city_id = location.get_ID()
 ```
 
 These were the functions we made use of when developing our weatherbot. While more information can be found at the openweathermap website, we got most of the above mentioned information from the following github: [csparpa](https://github.com/csparpa/pyowm/blob/master/pyowm/docs/usage-examples.md).
