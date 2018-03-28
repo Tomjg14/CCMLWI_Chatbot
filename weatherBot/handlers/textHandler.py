@@ -37,7 +37,10 @@ class TextHandler:
     def is_bye(self,text):
         pattern = '.*((good)?bye|farewell|take care|ciao|have a nice day|(see|talk to|speak) you( later)?)(\.|\!)*$'
         return bool(re.match(pattern,text,re.I))
-        
+
+    def need_help(self,text):
+        pattern = '^help(\.|\!)*$'
+        return bool(re.match(pattern,text,re.I))
 
     def get_chunks(self,text,label):
         #get places by using label GPE
