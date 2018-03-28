@@ -34,13 +34,14 @@ class InputHandler:
     def text_update(self,text):
         print(text)
         location = ""
-        if text == "hello":
+        if self.th.is_hi(text):
             message = self.create_message("greet")[0]
         elif text == "help":
             message = self.create_message("help")[0]
-        elif text == "bye":
+        elif self.th.is_bye(text):
             message = self.create_message("bye")[0]
         else:
+            print(text)
             places = self.th.get_chunks(text,"GPE")
             if len(places) > 0:
                 location = places[0]
@@ -60,7 +61,7 @@ class InputHandler:
                     obs = self.wh.getWeatherFromID(places[0])
                     (message,location) = self.createWeatherMessage(obs)
                 else:
-                    message = self.create_message("help")
+                    message = self.create_message("unclear")[0]
         return (message,location)
 
     def location_update(self,update,chatid):

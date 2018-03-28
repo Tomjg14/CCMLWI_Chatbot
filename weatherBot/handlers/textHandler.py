@@ -29,12 +29,12 @@ class TextHandler:
                 nn_list.append(word)
         return nn_list
 
-    def is_hi(text):
+    def is_hi(self,text):
         pattern = '^(he+y|hi|hello|yo+|good (day|morning|evening|afternoon))(\.|\!|,)*($| )'
         return bool(re.match(pattern,text,re.I))
         
 
-    def is_bye(text):
+    def is_bye(self,text):
         pattern = '.*((good)?bye|farewell|take care|ciao|have a nice day|(see|talk to|speak) you( later)?)(\.|\!)*$'
         return bool(re.match(pattern,text,re.I))
         
