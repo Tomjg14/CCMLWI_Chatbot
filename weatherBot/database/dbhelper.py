@@ -1,4 +1,5 @@
 import sqlite3
+import os
 
 class DBHelper:
 
@@ -15,8 +16,19 @@ class DBHelper:
         self.conn.execute(tagidx)
         self.conn.execute(textidx)
         self.conn.commit()
-        queries = self.readTXTFile()
-        self.initializeDB(queries)
+        if self.dbEmpty():
+            queries = self.readTXTFile()
+            self.initializeDB(queries)
+
+    def dbEmpty(self):
+        empty = True
+
+        c = self.conn.cursor()
+        exist = c.fetchone()
+        if exist is not None:
+            empty = False
+
+        return empty
 
     def readTXTFile(self,):
         queries = {}
