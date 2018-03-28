@@ -1,7 +1,9 @@
 import nltk
+import re
 from nltk import Tree
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
+
 
 class TextHandler:
 
@@ -27,6 +29,16 @@ class TextHandler:
                 nn_list.append(word)
         return nn_list
 
+    def is_hi(text):
+        pattern = '^(he+y|hi|hello|yo+|good (day|morning|evening|afternoon))(\.|\!|,)*($| )'
+        return bool(re.match(pattern,text,re.I))
+        
+
+    def is_bye(text):
+        pattern = '.*((good)?bye|farewell|take care|ciao|have a nice day|(see|talk to|speak) you( later)?)(\.|\!)*$'
+        return bool(re.match(pattern,text,re.I))
+        
+
     def get_chunks(self,text,label):
         #get places by using label GPE
         chunked = nltk.chunk.ne_chunk(self.compute_pos(self.tokenize_text(text)))
@@ -46,4 +58,4 @@ class TextHandler:
                 continue
 
         return output
-        
+
