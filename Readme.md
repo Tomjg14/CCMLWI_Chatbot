@@ -1,5 +1,5 @@
 # WeatherBot
-WeatherBot by Tom Janssen Groesbeek and Max Moons
+WeatherBot by Tom Janssen Groesbeek (s4229738) and Max Moons (). Two students from the Radboud University Nijmegen.
 
 ## Idea
 
