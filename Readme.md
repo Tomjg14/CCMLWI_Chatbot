@@ -7,6 +7,17 @@ This blogpost describes our own implementation of a weather bot. It is a telegra
 
 ## Telegram Tutorial
 
+To get started on our bot we followed the tutorial by Gareth Dwyer on codementor. The original tutorial explains how to make a todo bot using the telegram api. The todo bot simply keeps track of the input provided by a telegram user. It echos the input and if an input is repeated it removes this input from the memory. So the bot can be used to keep a 'todo' list from which items are removed when repeated. 
+
+Because we followed this tutorial, our bot was created by making use of the following:
+* Python 3.5
+* Telegram
+* SQL
+
+In order to get in contact with our telegram bot, simply add the following user to your telegram contacts:
+
+@echo1493_bot
+
 ## Weather API
 
 ## Creating The Bot
