@@ -89,7 +89,9 @@ This section provides in-depth information on our weatherbot code. Here we expla
 
 ### General Approach
 
-In order to 
+The bot should at least be able to answer weather related questions. As we were able to use the openweathermap API, we decided not to use any dataset. Mainly, because we could use the NLTK package with python to recognize placenames in a sentence and then we could use this information in combination with the API to get weather information. The bot did not need any large dataset to learn itself the different placenames. We could have used a dataset to learn it to respond to user messages. Instead we made use of predefined queries that were stored in a database. This makes the responses by the bot less natural. But decided to first focus on getting the bot running and then to add more functionality. Sadly, we did not have enough time to add more sophisticated functionalities like text generation. 
+
+Neither did we use any model for our bot. The bot is very basic in that it responds to every new message send by the user. It then searches for certain keywords and reacts on them. We made sure to implement certain functions in order to make it possible to create a sort of memory for the bot. Unfortunately, we ended up not using these functions, which means that the bot only responds to the last message. It does however, remember previous mentioned locations.
 
 ### Different Classes
 
@@ -126,6 +128,8 @@ The textHandler.py class is used to analyze the text send by an user. At first w
 Then moving on to the final class of the Handlers library, the weatherHandler. As we wanted to create a weatherbot, we also need to make sure that the bot can collect weather information if a placename or location is provided by an user. This class will store previous named locations and related weather information in a dictionary. Moreover, this class is also used to collect weather information on Nijmegen. This information is then used to update the mood of the bot. If the weather is bad, the bot will be sad. If the weather is nice, the bot will be happy. Otherwise, the bot's mood is neutral. These moods are used to generate different forms of responses by the bot.
 
 ### Simple Workflow
+
+
 
 ## What The Bot Does
 
