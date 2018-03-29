@@ -188,6 +188,9 @@ This section contains a short demo for the different functionalities our bot can
 
 ## Future Improvements
 
-At the moment the bot has very little sophisticated functionality. It does parse the sentence with natural language processing, but only to search for any placenames/locations in the sentence. --> Vermeld misschien nog andere slimme dingen die de bot wel doet. Maakt niet uit hoe klein. Zoals de regular expressions waardoor hij meerdere input kan begrijpen!
-* improve1
-* improve2
+* At the moment the bot has very little sophisticated functionality. It does parse the sentence with natural language processing, but only to search for any placenames/locations in the sentence. The language processing module could be expanded so it is more robust, e.g. be able to parse typo's, more advanced interpretation of sentences (at the moment it uses limited regular expressions to detect certain words/parts of sentences)
+* The mood of the bot could be made more complicated. At this moment the mood is determined by the weather in Nijmegen, although we like this idea, there is only one contributing factor: the weather type. If we were to expand this feature, the mood would also be determined by the temperature and other information that could be extracted from weather observations
+* The language generation could do with some expansion, instead of simply letting the bot pick sentences from a list of example sentences we could let it construct its own sentences. This will probably make interacting with the bot more interesting, although it is also much more error-prone.
+* Another feature we were considering to implement was to make the bot say random weather-related facts of cities. Small trivial fun-facts like the coldest day measured in a queried location.
+* Another extension for the mood would be to add different levels. At the moment the bot can be sad, neutral and happy, a few extra examples would include the bot feeling silly or angry. The behavior could also be adapted more towards the bot's current mood.
+
