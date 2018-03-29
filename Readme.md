@@ -74,9 +74,36 @@ These were the functions we made use of when developing our weatherbot. While mo
 
 This section provides in-depth information on our weatherbot code. Here we explain the different classes that the bot is made up of and what packages were included to ensure that the bot functions correctly. At the end of this section you will find information on the normal workflow of the code when the bot is being used. The next section includes a demo of our bot.
 
-
-
 ### Different Classes
+
+The most important classes that make up the bot are:
+* main
+* weatherBot
+
+The main class is used to run the bot and the weatherBot class is used in the main class to make a weatherbot object. From this object the different functionalities that are included can be called.
+
+Next to these classes we have several other that can be grouped under different libraries. The different librariers are:
+* config
+* database
+* handlers
+
+The config library contains a config script that is used to store the telegram API key and the openweathermap API key. We made sure to store these keys in seperate .txt files which were note pushed to our git. With the config script we read these keys into the main code in order to create a connection with the different API's.
+
+The database library contains two scripts dedicated to setting up databases that are used by the bot. These scripts are:
+* dbhelper.py
+* userDB.py
+
+The dbhelper script is used to setupt the basic query database. This database is used by the bot to collect basic responses to the input of an user. Because we had little experience with SQL, we wrote the script in such a way that we can write the basic responses in the .txt file named queries. The database script then reads in this .txt file with the different queries. The output database by this script is a table with 3 columns. The first column relates to the sentiment related to the response, the second column relates to the specific reponse tag and the final column is the response itself. Each row is then a specific response.
+
+The userDB script is used to store the different input responses the bot receives by different users. The database created by this script is a table with 5 columns. The first column holds the chatid which is linked to an user. The second column holds the messageid which is different for every message an user sends. Then the third column is used to store the message itself. The fourth column will hold the location that was included in the message, or nothing if no location was included. Finally, the fifth column will hold the time that the message was received.
+
+Then moving on to the final library, the handlers. The handlers library contains different sort of handler classes. Like the names states, these classes are used to handle certain situations. The different handlers are:
+* inputHandler
+* textHandler
+* timeHandler
+* weatherHandler
+
+
 
 ### Important Packages
 
