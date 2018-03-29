@@ -38,6 +38,18 @@ class TextHandler:
         pattern = '.*((good)?bye|farewell|take care|ciao|have a nice day|(see|talk to|speak) you( later)?)(\.|\!)*$'
         return bool(re.match(pattern,text,re.I))
 
+    def need_temp(self,text):
+        pattern = '.*temperature.*'
+        return bool(re.match(pattern,text,re.I))
+
+    def need_status(self,text):
+        pattern = '.*(status|type).*'
+        return bool(re.match(pattern,text,re.I))
+
+    def need_forecast(self,text):
+        pattern = '.*forecast.*'
+        return bool(re.match(pattern,text,re.I))        
+
     def need_help(self,text):
         pattern = '^help(\.|\!)*$'
         return bool(re.match(pattern,text,re.I))
