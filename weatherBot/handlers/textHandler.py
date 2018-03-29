@@ -54,6 +54,10 @@ class TextHandler:
         pattern = '^help(\.|\!)*$'
         return bool(re.match(pattern,text,re.I))
 
+    def mood(self,text):
+        pattern = '((^How are you)|(^what(\'s| is) up)|.*mood).*'
+        return bool(re.match(pattern,text,re.I))
+
     def get_chunks(self,text,label):
         #get places by using label GPE
         chunked = nltk.chunk.ne_chunk(self.compute_pos(self.tokenize_text(text)))
