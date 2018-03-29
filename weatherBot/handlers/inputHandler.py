@@ -11,6 +11,13 @@ class InputHandler:
         self.wh = wh
         self.localtime = time.asctime(time.localtime(time.time()))
 
+    '''
+    Description: Process all the new updates
+    :updates: A list containing the to be processed updates
+    :mood: The current mood of the chatbot
+    :message: The response of the chatbot for update
+    :chatid: The ID of the chat the message was designed for
+    '''
     def handle_updates(self,updates,mood):
         self.mood = mood
         localtime = time.asctime(time.localtime(time.time()))
@@ -28,6 +35,12 @@ class InputHandler:
                 
             return (message,chatid)
 
+    '''
+    Description: Interpret and create a response for the incoming message
+    :text: The incoming message
+    :message: The response of the bot
+    :location: The location of the weather report
+    '''
     def text_update(self,text):
         location = ""
         if self.th.is_hi(text):
@@ -55,6 +68,11 @@ class InputHandler:
             (message,location) = self.check_for_places(text)
         return (message,location)
 
+    '''
+    Description: Randomly picks a message that was inserted in the database
+    :messages: All possible messages
+    :message: The randomly picked message
+    '''
     def pick_message(self,messages):
         if len(messages) > 1:
             message = random.choice(messages)
@@ -62,6 +80,12 @@ class InputHandler:
             message = messages[0]
         return message
 
+    '''
+    Description: Scans the text for placenames and generates a message
+    :text: The text that is being scanned
+    :message: The created message
+    :location: The location that was extracted from the text
+    '''
     def check_for_places(self,text):
         location = ""
         places = self.th.get_chunks(text,"GPE")
@@ -93,19 +117,42 @@ class InputHandler:
         return (message,location)
             
 
-    def location_update(self,update,chatid):
+    '''
+    Description: Create a message based on the observation for the correct location
+    :update: The weather updates
+    :message: The appropiate response based on the location
+    '''
+    def location_update(self,update):
         obs = self.wh.getWeatherFromLoc(update["message"]["location"])
         (message,location) = self.createWeatherMessage(obs)
         return message
 
+    '''
+    Description: Pulls a message from the database based on mood and tag
+    :tag: The tag of the message
+    :message: The generated response
+    '''
     def create_message(self,tag):
         message = self.db.get_text(self.mood,tag)
         print(message)
         return message
 
+    '''
+    Description: Store a message in the database
+    :chatid: The ID of the chatroom the message originates from
+    :messageid: The ID of the message that should be stored
+    :text: The actual message
+    :location: The location tag of the message
+    :time: The time stamp of the message
+    '''
     def store_input(self,chatid,messageid,text,location,time):
         self.user_db.add_item(chatid,messageid,text,location,time)
 
+    '''
+    Description: Creates a weather forecast message
+    :location: The location of the forecast
+    :message: The generated forecast message
+    '''
     def createWeatherMessage(self,location):
         forecast = self.wh.get_weather_forecast(location)
         status = forecast["status"]
@@ -115,6 +162,12 @@ class InputHandler:
         message = "The weather at "+placename+" at "+wtime+" is: "+status+". The temperature is: "+temperature+"C."
         return message
 
+    '''
+    Description: Create a weather message for a specific weather type
+    :location: The location for the weather message
+    :info_type: The specific type of weather information
+    :message: The generated message
+    '''
     def createSpecificWeatherMessage(self,location,info_type):
         if info_type == "temperature":
             temperature = self.wh.get_specific_info(location,info_type)

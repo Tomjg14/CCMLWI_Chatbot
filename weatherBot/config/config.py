@@ -1,3 +1,6 @@
+'''
+Class for getting the bot and weathermap key
+'''
 class Config:
 
     def __init__(self):

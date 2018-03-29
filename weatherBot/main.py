@@ -25,6 +25,7 @@ def main(wb):
     hour = getHour()
     last_update_id = None
     while True:
+        print("updating..")
         updates = wb.get_updates(last_update_id)
         if len(updates["result"]) > 0:
             last_update_id = wb.get_last_update_id(updates) + 1
