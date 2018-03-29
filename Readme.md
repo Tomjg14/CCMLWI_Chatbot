@@ -150,6 +150,17 @@ Finally, it is important to note that the bot will only recognize messages writt
 
 ## How To Use The Bot
 
+This bot can mainly be used to aqcuire information on the weather of a specified location. The user could greet the bot and say farewell. But this is not necessary and the user could immediately provide the bot with a location for which the weather information is needed. As the bot will change its mood depending on the weather in Nijmegen, one could also ask the bot about its mood to get the weather status from Nijmegen. 
+
+Example input:
+* Different types of English greetings: hi, hello, how are you
+* Different types of English farewells: bye, see ya, good night
+* location
+* placename: either in a full sentence or just the name
+* help: to get instructions
+* 'How are you' or 'What is your current mood?': to get the mood of the bot
+* something unclear: the bot will not understand it, but ask if instructions are needed
+
 ## Demo
 
 ## Future Improvements
