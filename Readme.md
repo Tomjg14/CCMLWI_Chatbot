@@ -98,12 +98,15 @@ The dbhelper script is used to setupt the basic query database. This database is
 The userDB script is used to store the different input responses the bot receives by different users. The database created by this script is a table with 5 columns. The first column holds the chatid which is linked to an user. The second column holds the messageid which is different for every message an user sends. Then the third column is used to store the message itself. The fourth column will hold the location that was included in the message, or nothing if no location was included. Finally, the fifth column will hold the time that the message was received.
 
 Then moving on to the final library, the handlers. The handlers library contains different sort of handler classes. Like the names states, these classes are used to handle certain situations. The different handlers are:
-* inputHandler
-* textHandler
-* timeHandler
-* weatherHandler
+* inputHandler.py
+* textHandler.py
+* weatherHandler.py
 
+The inputHandler.py class is used to handle new updates (messages send by user). It will check if the message is a text or a location and deal with each type of message accordingly. This class will also prepare the messages that the bot will send to the user.
 
+The textHandler.py class is used to analyze the text send by an user. At first we created this class to be able to recognize a placename in a sentence. But eventually we also decided to use this class to let the bot recognize different forms of greetings or farewells. This is done by making use of regular expressions. The user could also ask how the bot is doing or what mood it has and this can also be recognized by a regular expression.
+
+Then moving on to the final class of the Handlers library, the weatherHandler. As we wanted to create a weatherbot, we also need to make sure that the bot can collect weather information if a placename or location is provided by an user. This class will store previous named locations and related weather information in a dictionary. Moreover, this class is also used to collect weather information on Nijmegen. This information is then used to update the mood of the bot. If the weather is bad, the bot will be sad. If the weather is nice, the bot will be happy. Otherwise, the bot's mood is neutral. These moods are used to generate different forms of responses by the bot.
 
 ### Important Packages
 
