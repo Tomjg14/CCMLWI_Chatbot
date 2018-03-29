@@ -9,6 +9,7 @@ class WeatherHandler:
         self.temp = ""
         self.weather = ""
         self.weather_code = 0
+        self.prev_loc = ""
 
     def getWeatherFromLoc(self,location):
         obs = self.owm.weather_at_coords(location["latitude"],location["longitude"])
@@ -39,6 +40,7 @@ class WeatherHandler:
         w = obs.get_weather()
         l = obs.get_location()
         placename = str(l.get_name())
+        self.prev_loc = placename
         forecast["wtime"] = time.asctime(time.localtime(time.time()))
         forecast["status"] = str(w.get_detailed_status())
         forecast["temperature"] = str(w.get_temperature('celsius').get('temp'))
@@ -55,3 +57,6 @@ class WeatherHandler:
 
     def getWeatherNimma(self):
         return (self.weather,self.weather_code,self.temp)
+
+    def get_prev_loc(self):
+        return self.prev_loc

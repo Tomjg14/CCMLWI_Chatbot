@@ -43,6 +43,15 @@ class InputHandler:
         elif self.th.is_bye(text):
             messages = self.create_message("bye")
             message = self.pick_message(messages)
+        elif self.th.need_temp(text):
+            location = self.wh.get_prev_loc()
+            message = self.createSpecificWeatherMessage(location,"temperature")
+        elif self.th.need_status(text):
+            location = self.wh.get_prev_loc()
+            message = self.createSpecificWeatherMessage(location,"status")
+        elif self.th.need_forecast(text):
+            location = self.wh.get_prev_loc()
+            message = self.createWeatherMessage(location)
         else:
             (message,location) = self.check_for_places(text)
         return (message,location)
@@ -98,33 +107,26 @@ class InputHandler:
     def store_input(self,chatid,messageid,text,location,time):
         self.user_db.add_item(chatid,messageid,text,location,time)
 
-    '''
-    weather message is very static
-    instead it would be better if the weatherbot stores the individual parts
-    and only returns the parts that were asked for
-    example: "How warm is it in Nijmegen? A: it is ... Celsius"
-    example: "What is the weather like in Nijmegen? A: it is cloudy. Could you maybe tell me how warm it is as well? A: it is ... Celsius"
-    '''
-    def createWeatherMessage(self,obs):
-        w = obs.get_weather()
-        l = obs.get_location()
-        status = str(w.get_detailed_status())
-        placename = str(l.get_name())
-        #wtime = str(w.get_reference_time(timeformat='iso'))
-        wtime = self.localtime
-        temperature = str(w.get_temperature('celsius').get('temp'))
-        message = "Weather Status: "+status +" At "+placename+" "+wtime+" Temperature: "+ temperature+"C"
-        return (message,placename)
+    def createWeatherMessage(self,location):
+        forecast = self.wh.get_weather_forecast(location)
+        status = forecast["status"]
+        placename = location
+        wtime = forecast["wtime"]
+        temperature = forecast["temperature"]
+        message = "The weather at "+placename+" at "+wtime+" is: "+status+". The temperature is: "+temperature+"C."
+        return message
 
-    def createSpecificWeatherMessage(self,obs):
-        w = obs.get_weather()
-        l = obs.get_location()
-        status = str(w.get_detailed_status())
-        placename = str(l.get_name())
-        #wtime = str(w.get_reference_time(timeformat='iso'))
-        wtime = self.localtime
-        temperature = str(w.get_temperature('celsius').get('temp'))
-        message = "Weather Status: "+status +" At "+placename+" "+wtime+" Temperature: "+ temperature+"C"
-        return (message,placename)
+    def createSpecificWeatherMessage(self,location,info_type):
+        if info_type == "temperature":
+            temperature = self.wh.get_specific_info(location,info_type)
+            message = "The temperature at "+location+" is: "+temperature+"C."
+            return message
+        elif info_type == "status":
+            location = "Nijmegen"
+            status = self.wh.get_specific_info(location,info_type)
+            message = "The current weather status at "+location+" is: "+status+"."
+            return message
+        else:
+            return "I do not understand this request. Please try again"
 
         
