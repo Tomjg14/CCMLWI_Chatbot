@@ -135,6 +135,19 @@ The flowchart below gives a general idea of how our code works. To run the bot o
 
 ## What The Bot Does
 
+The bot can do the following:
+* greet the user
+* say farewell to the user
+* provide instructions
+* provide (specific) weather information when a location is provided
+* provide  (specific) weather information when a placename is given
+* react when the user asks about its mood
+* change its mood depending on the weather in Nijmegen
+
+The bot can react to different types of greetings and farewells. It is also able to respond when asked about its mood. If a location is provided or if a placename is entered, the bot will be able to provide the user with specific weather information. This could be: only the temperature, only the status or both. The user will need to specify which information is needed. The bot also changes its mood depending on the weather status in Nijmegen. This is done every new hour. When the bot is sad (because it is rainy), it will react more moody. But if the sky is clear, the bot will be happy and change its responses. 
+
+Finally, it is important to note that the bot will only recognize messages written in English. If the bot does not understand the message, it will state this and tell the user to type 'help' if the user needs instructions.
+
 ## How To Use The Bot
 
 ## Demo
