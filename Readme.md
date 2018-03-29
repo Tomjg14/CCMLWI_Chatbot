@@ -188,6 +188,6 @@ This section contains a short demo for the different functionalities our bot can
 
 ## Future Improvements
 
-At the moment the bot has very little sophisticated functionality. It does parse the sentence with natural language processing, but only to search for any placenames/locations in the sentence. --> Vermeld misschien nog andere slimme dingen die de bot wel doet. Maakt niet uit hoe klein.
+At the moment the bot has very little sophisticated functionality. It does parse the sentence with natural language processing, but only to search for any placenames/locations in the sentence. --> Vermeld misschien nog andere slimme dingen die de bot wel doet. Maakt niet uit hoe klein. Zoals de regular expressions waardoor hij meerdere input kan begrijpen!
 * improve1
 * improve2
