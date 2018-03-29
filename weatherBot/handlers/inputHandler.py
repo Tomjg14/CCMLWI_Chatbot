@@ -60,7 +60,9 @@ class InputHandler:
         if len(places) > 0:
             location = places[0]
             obs = self.wh.getWeatherFromPlace(location)
-            (message,location) = self.createWeatherMessage(obs)
+            self.wh.set_weather_forecast(obs)
+            message = self.create_message("location")[0]
+            message = "%s %s?"%(message,location)
         else:
             places = []
             tokens = self.th.tokenize_text(text)
@@ -73,7 +75,11 @@ class InputHandler:
                 places = places + self.wh.getLocations(nn)
             if len(places) > 0:
                 obs = self.wh.getWeatherFromID(places[0])
-                (message,location) = self.createWeatherMessage(obs)
+                l = obs.get_location()
+                location = str(l.get_name())
+                self.wh.set_weather_forecast(obs)
+                message = self.create_message("location")[0]
+                message = "%s %s?"%(message,location)
             else:
                 message = self.create_message("unclear")[0]
         return (message,location)
@@ -100,6 +106,17 @@ class InputHandler:
     example: "What is the weather like in Nijmegen? A: it is cloudy. Could you maybe tell me how warm it is as well? A: it is ... Celsius"
     '''
     def createWeatherMessage(self,obs):
+        w = obs.get_weather()
+        l = obs.get_location()
+        status = str(w.get_detailed_status())
+        placename = str(l.get_name())
+        #wtime = str(w.get_reference_time(timeformat='iso'))
+        wtime = self.localtime
+        temperature = str(w.get_temperature('celsius').get('temp'))
+        message = "Weather Status: "+status +" At "+placename+" "+wtime+" Temperature: "+ temperature+"C"
+        return (message,placename)
+
+    def createSpecificWeatherMessage(self,obs):
         w = obs.get_weather()
         l = obs.get_location()
         status = str(w.get_detailed_status())

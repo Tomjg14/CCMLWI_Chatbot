@@ -1,3 +1,4 @@
+happy			location			What weather information do you like on
 happy			greet			Hey sunshine!
 happy			greet			A lovely day to you!
 happy			greet			Good day!
@@ -14,6 +15,7 @@ happy			bye			Catch you later!
 happy			bye			Peace!
 happy			unclear			I am sorry, but it is unclear what you meant with that last message. Type 'help' if you need instructions.
 happy			help			Hi there, I am a simple telegram bot specialized in the weather. This means that you could name a place or send me a location and I will give you information on the weather over there. You could simply name the place, or ask me a specific question related to the weather and a place. But if you are bored, I could also provide some random weather facts. Be warned, my mood depends on the weather in Nijmegen. So do not take it personally when my responses are a bit moody. For more information you could visit this awesome site: https://tomjg14.github.io/
+sad			location			What weather information do you like on 
 sad			greet			Hey.
 sad			greet			Hi.
 sad			greet			Hello.
@@ -23,6 +25,7 @@ sad			bye			Cya
 sad			bye			Be gone!
 sad			unclear			I am sorry, but it is unclear what you meant with that last message. Type 'help' if you need instructions.
 sad			help			Hi there, I am a simple telegram bot specialized in the weather. This means that you could name a place or send me a location and I will give you information on the weather over there. You could simply name the place, or ask me a specific question related to the weather and a place. But if you are bored, I could also provide some random weather facts. Be warned, my mood depends on the weather in Nijmegen. So do not take it personally when my responses are a bit moody. For more information you could visit this awesome site: https://tomjg14.github.io/
+neutral			location			What weather information do you like on
 neutral			greet			Hey there.
 neutral			greet			Hello there.
 neutral			greet			Hi there.

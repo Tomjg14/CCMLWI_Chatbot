@@ -79,5 +79,11 @@ class WeatherBot:
         self.wh.setWeatherNimma()
 
     def updateMood(self):
-        (weather,temperature) = self.wh.getWeatherNimma()
+        (weather,weather_code,temperature) = self.wh.getWeatherNimma()
+        if weather_code == 800:
+            self.mood = "happy"
+        elif (801 >= weather_code <= 804) or (951 >= weather_code <= 955) or (weather_code == 701) or (600 >= weather_code <= 601):
+            self.mood = "sad"
+        else:
+            self.mood = "sad"
         
