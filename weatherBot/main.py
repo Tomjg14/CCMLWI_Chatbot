@@ -1,6 +1,11 @@
 from weatherBot import WeatherBot
 import time
 
+
+'''
+description: getHour() function will collect the current hour as two character int.
+:hour: returns hours as int
+'''
 def getHour():
     t = time.asctime(time.localtime(time.time()))
     time_elements = t.split()
@@ -10,7 +15,13 @@ def getHour():
     return hour
 
 
+'''
+description: main(wb) is the main function that is used to run the weatherbot.
+:wb: weatherBot object, this is a weatherBot object that is used to obtain certain functions from the weatherbot.
+'''
 def main(wb):
+    wb.updateWeatherNimma()
+    wb.updateMood()
     hour = getHour()
     last_update_id = None
     while True:

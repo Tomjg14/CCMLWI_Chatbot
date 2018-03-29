@@ -27,15 +27,13 @@ class InputHandler:
                 
             return (message,chatid)
 
-    '''
-    This function needs improvement!!
-    at the moment it only checks for 3 basic input types.
-    Should be more dynamic, so that it reacts on words like hi, hello, how are you etc... as well.
-    '''
     def text_update(self,text):
         location = ""
         if self.th.is_hi(text):
             messages = self.create_message("greet")
+            message = self.pick_message(messages)
+        elif self.th.mood(text):
+            messages = self.create_message("mood")
             message = self.pick_message(messages)
         elif self.th.need_help(text):
             messages = self.create_message("help")
@@ -71,7 +69,7 @@ class InputHandler:
             obs = self.wh.getWeatherFromPlace(location)
             self.wh.set_weather_forecast(obs)
             message = self.create_message("location")[0]
-            message = "%s %s?"%(message,location)
+            message = "%s %s? Would you like the temperature, weather status or the entire forecast?"%(message,location)
         else:
             places = []
             tokens = self.th.tokenize_text(text)
@@ -88,7 +86,7 @@ class InputHandler:
                 location = str(l.get_name())
                 self.wh.set_weather_forecast(obs)
                 message = self.create_message("location")[0]
-                message = "%s %s?"%(message,location)
+                message = "%s %s? Would you like the temperature, weather status or the entire forecast?"%(message,location)
             else:
                 message = self.create_message("unclear")[0]
         return (message,location)
