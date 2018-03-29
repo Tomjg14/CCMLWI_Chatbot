@@ -74,6 +74,10 @@ These were the functions we made use of when developing our weatherbot. While mo
 
 This section provides in-depth information on our weatherbot code. Here we explain the different classes that the bot is made up of and what packages were included to ensure that the bot functions correctly. At the end of this section you will find information on the normal workflow of the code when the bot is being used. The next section includes a demo of our bot.
 
+### General Approach
+
+In order to 
+
 ### Different Classes
 
 The most important classes that make up the bot are:
@@ -108,8 +112,12 @@ The textHandler.py class is used to analyze the text send by an user. At first w
 
 Then moving on to the final class of the Handlers library, the weatherHandler. As we wanted to create a weatherbot, we also need to make sure that the bot can collect weather information if a placename or location is provided by an user. This class will store previous named locations and related weather information in a dictionary. Moreover, this class is also used to collect weather information on Nijmegen. This information is then used to update the mood of the bot. If the weather is bad, the bot will be sad. If the weather is nice, the bot will be happy. Otherwise, the bot's mood is neutral. These moods are used to generate different forms of responses by the bot.
 
-### Important Packages
-
 ### Simple Workflow
 
+## What The Bot Does
+
+## How To Use The Bot
+
 ## Demo
+
+## Future Improvements
