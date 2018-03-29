@@ -4,7 +4,7 @@ WeatherBot by Tom Janssen Groesbeek (s4229738) and Max Moons (). Two students fr
 This document contains the following sections:
 * [Idea](#Idea)
 * [Telegram Tutorial](#telegram-tutorial)
-* [Weather Api](#weather-api)
+* [Weather API](#weather-api)
 * [Creating The Bot](#creating-the-bot)
     * [General Approach](#general-approach)
     * [Different Classes](#different-classes)
