@@ -36,7 +36,7 @@ class InputHandler:
         location = ""
         if self.th.is_hi(text):
             message = self.create_message("greet")[0]
-        elif text == "help":
+        elif self.th.need_help(text):
             message = self.create_message("help")[0]
         elif self.th.is_bye(text):
             message = self.create_message("bye")[0]
