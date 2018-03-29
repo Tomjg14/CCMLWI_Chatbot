@@ -75,3 +75,9 @@ class WeatherBot:
         reply_markup = {"keyboard":keyboard, "one_time_keyboard": True}
         return json.dumps(reply_markup)
 
+    def updateWeatherNimma(self):
+        self.wh.setWeatherNimma()
+
+    def updateMood(self):
+        (weather,temperature) = self.wh.getWeatherNimma()
+        
