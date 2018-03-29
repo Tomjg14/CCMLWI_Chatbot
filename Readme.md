@@ -2,8 +2,8 @@
 WeatherBot by Tom Janssen Groesbeek (s4229738) and Max Moons (). Two students from the Radboud University Nijmegen.
 
 This document contains the following sections:
-* [Idea](##Idea)
-* [Telegram Tutorial](##telegramtutorial)
+* [Idea](#Idea)
+* [Telegram Tutorial](#telegramtutorial)
 
 ## Idea
 
