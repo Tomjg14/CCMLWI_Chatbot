@@ -129,6 +129,8 @@ Then moving on to the final class of the Handlers library, the weatherHandler. A
 
 ### Simple Workflow
 
+The flowchart below gives a general idea of how our code works. To run the bot one should run the main class. This class creates a weatherbot object. The weatherbot in turn initializes the different databases and the config file is called in order to get the necessary keys. Then while the entire system runs, the inputhandler is used to deal with new messages and returns appropriate responses to the weatherbot that will send them via telegram to the user.
+
 ![alt text](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/Untitled%20Diagram.jpg "workflow")
 
 ## What The Bot Does
