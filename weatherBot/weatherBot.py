@@ -53,7 +53,7 @@ class WeatherBot:
         return max(update_ids)
 
     def handle_updates(self,updates):
-        (message,chatid) = self.ih.handle_updates(updates)
+        (message,chatid) = self.ih.handle_updates(updates,self.mood)
         self.send_message(message,chatid)
 
     def get_last_chat_id_and_text(self,updates):
@@ -80,10 +80,14 @@ class WeatherBot:
 
     def updateMood(self):
         (weather,weather_code,temperature) = self.wh.getWeatherNimma()
+        print(weather_code)
         if weather_code == 800:
             self.mood = "happy"
-        elif (801 >= weather_code <= 804) or (951 >= weather_code <= 955) or (weather_code == 701) or (600 >= weather_code <= 601):
-            self.mood = "sad"
+        elif (801 <= weather_code <= 804) or (951 <= weather_code <= 955) or (weather_code == 701) or (600 <= weather_code <= 601):
+            self.mood = "neutral"
         else:
             self.mood = "sad"
+
+    def getMood(self):
+        return self.mood
         

@@ -11,7 +11,8 @@ class InputHandler:
         self.wh = wh
         self.localtime = time.asctime(time.localtime(time.time()))
 
-    def handle_updates(self,updates):
+    def handle_updates(self,updates,mood):
+        self.mood = mood
         localtime = time.asctime(time.localtime(time.time()))
         for update in updates["result"]:
             chatid = update["message"]["chat"]["id"]

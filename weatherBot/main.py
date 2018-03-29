@@ -25,11 +25,10 @@ def main(wb):
     hour = getHour()
     last_update_id = None
     while True:
-        print("getting updates")
         updates = wb.get_updates(last_update_id)
         if len(updates["result"]) > 0:
             last_update_id = wb.get_last_update_id(updates) + 1
-            wb.handle_updates(updates)
+            wb.handle_updates(updates,)
         new_hour = getHour()
         if new_hour is not hour:
             wb.updateWeatherNimma()
