@@ -1,5 +1,5 @@
 # WeatherBot
-WeatherBot by Tom Janssen Groesbeek (s4229738) and Max Moons (). Two students from the Radboud University Nijmegen.
+WeatherBot by Tom Janssen Groesbeek (s4229738) and Max Moons (s4256417). Two students from the Radboud University Nijmegen.
 
 This document contains the following sections:
 * [Idea](#Idea)
@@ -164,3 +164,5 @@ Example input:
 ## Demo
 
 ## Future Improvements
+* improve1
+* improve2
