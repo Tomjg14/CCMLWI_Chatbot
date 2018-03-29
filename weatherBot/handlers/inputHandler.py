@@ -30,7 +30,7 @@ class InputHandler:
                 (message,location) = self.text_update(text)
                 self.store_input(chatid,messageid,text,location,localtime)
             elif "location" in attributes:
-                (message,location) = self.location_update(update,chatid)
+                (message,location) = self.location_update(update)
                 self.store_input(chatid,messageid,"LOCATION",location,localtime)
                 
             return (message,chatid)
@@ -124,8 +124,10 @@ class InputHandler:
     '''
     def location_update(self,update):
         obs = self.wh.getWeatherFromLoc(update["message"]["location"])
-        (message,location) = self.createWeatherMessage(obs)
-        return message
+        self.wh.set_weather_forecast(obs)
+        location = self.wh.get_prev_loc()
+        message = self.createWeatherMessage(location)
+        return (message,location)
 
     '''
     Description: Pulls a message from the database based on mood and tag
