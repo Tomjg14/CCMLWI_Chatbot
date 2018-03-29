@@ -1,4 +1,33 @@
-greet			Hello there.
-help			I am a weatherbot so name a place or send me a location and I will give you information on the weather over there. For more information please visit: https://tomjg14.github.io/
-bye			Have a nice day.
+happy			greet			Hey sunshine!
+happy			greet			A lovely day to you!
+happy			greet			Good day!
+happy			greet			Hey there! Nice to see you!
+happy			greet			Hey you!
+happy			greet			yo!
+happy			greet			Hiya!
+happy			bye			See you later, alligator!
+happy			bye			Have a nice day!
+happy			bye			Take care!
+happy			bye			Take it easy!
+happy			bye			Have a good one!
+happy			bye			Catch you later!
+happy			bye			Peace!
+sad			greet			Hey.
+sad			greet			Hi.
+sad			greet			Hello.
+sad			bye			Bye
+sad			bye			See you
+sad			bye			Cya
+sad			bye			Be gone!
+neutral			greet			Hey there.
+neutral			greet			Hello there.
+neutral			greet			Hi there.
+neutral			greet			Good day.
+neutral			bye			Bye.
+neutral			bye			Bye bye.
+neutral			bye			Talk to you later.
+neutral			bye			See you soon.
+neutral			bye			See you next time.
+neutral			bye			Till next time.
+neutral			bye			Until next time.
 unclear			I am sorry, but it is unclear what you meant with that last message. Type 'help' if you need instructions.
