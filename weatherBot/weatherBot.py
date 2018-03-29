@@ -17,6 +17,7 @@ class WeatherBot:
 
     def __init__(self):
         self.c = config.Config()
+        self.mood = "neutral"
         self.th = textHandler.TextHandler()
         self.TOKEN = self.c.getToken()
         self.OWMKEY = self.c.getOWMKEY()
@@ -26,9 +27,7 @@ class WeatherBot:
         self.user_db = userDB.UserDB()
         self.user_db.setup()
         self.wh = weatherHandler.WeatherHandler(self.OWMKEY)
-        self.ih = inputHandler.InputHandler(self.db,self.user_db,self.th,self.wh)
-
-    
+        self.ih = inputHandler.InputHandler(self.mood,self.db,self.user_db,self.th,self.wh)
         
     def get_content(self,url):
         response = requests.get(url)

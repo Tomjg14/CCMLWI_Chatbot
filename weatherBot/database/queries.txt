@@ -30,4 +30,5 @@ neutral			bye			See you soon.
 neutral			bye			See you next time.
 neutral			bye			Till next time.
 neutral			bye			Until next time.
-unclear			I am sorry, but it is unclear what you meant with that last message. Type 'help' if you need instructions.
+neutral			unclear			I am sorry, but it is unclear what you meant with that last message. Type 'help' if you need instructions.
+neutral			help			Hi there, I am a simple telegram bot specialized in the weather. This means that you could name a place or send me a location and I will give you information on the weather over there. You could simply name the place, or ask me a specific question related to the weather and a place. But if you are bored, I could also provide some random weather facts. Be warned, my mood depends on the weather in Nijmegen. So do not take it personally when my responses are a bit moody. For more information you could visit this awesome site: https://tomjg14.github.io/
