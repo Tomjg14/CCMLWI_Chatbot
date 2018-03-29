@@ -163,6 +163,31 @@ Example input:
 
 ## Demo
 
+This section contains a short demo for the different functionalities our bot can handle.
+
+### basic chit-chat
+
+![greeting](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/hello.JPG "greetings")
+
+![farewell](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/bye.JPG "farewells")
+
+![unclear](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/unclear.JPG "unclear")
+
+![help](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/help.JPG "help")
+
+![mood](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/mood.JPG "mood")
+
+### domain specific questions
+
+![location](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/location.JPG "location")
+
+![placename singular](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_singular.JPG "placename")
+
+![placename in sentence](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_sentence.JPG "placename2")
+
+
 ## Future Improvements
+
+At the moment the bot has very little sophisticated functionality. It does parse the sentence with natural language processing, but only to search for any placenames/locations in the sentence. --> Vermeld misschien nog andere slimme dingen die de bot wel doet. Maakt niet uit hoe klein.
 * improve1
 * improve2
