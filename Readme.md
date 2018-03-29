@@ -3,7 +3,7 @@ WeatherBot by Tom Janssen Groesbeek (s4229738) and Max Moons (). Two students fr
 
 This document contains the following sections:
 * [Idea](#Idea)
-* [Telegram Tutorial](#telegramtutorial)
+* [Telegram Tutorial](#telegram-tutorial)
 
 ## Idea
 
