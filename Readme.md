@@ -179,11 +179,11 @@ This section contains a short demo for the different functionalities our bot can
 
 ### domain specific questions
 
-![location](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/location.JPG "location")
+![location](#https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/location.JPG "location")
 
-![placename singular](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_singular.JPG "placename")
+![placename singular](#https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_singular.JPG "placename")
 
-![placename in sentence](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_sentence.JPG "placename2")
+![placename in sentence](#https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_sentence.JPG "placename2")
 
 
 ## Future Improvements
