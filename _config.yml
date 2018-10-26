@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+title: 'Weather Bot'
+description: 'This is a blog on a wheater bot we wrote for a course given on the Radboud University, Nijmegen.'
+logo: 'images/Bot-logo.jpg'
+show_downloads: 'true'
