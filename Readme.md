@@ -131,7 +131,7 @@ Then moving on to the final class of the Handlers library, the weatherHandler. A
 
 The flowchart below gives a general idea of how our code works. To run the bot one should run the main class. This class creates a weatherbot object. The weatherbot in turn initializes the different databases and the config file is called in order to get the necessary keys. Then while the entire system runs, the inputhandler is used to deal with new messages and returns appropriate responses to the weatherbot that will send them via telegram to the user.
 
-![alt text](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/Untitled%20Diagram.jpg "workflow")
+![alt text](Untitled%20Diagram.jpg "workflow")
 
 ## What The Bot Does
 
@@ -167,23 +167,23 @@ This section contains a short demo for the different functionalities our bot can
 
 ### basic chit-chat
 
-![greeting](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/hello.JPG "greetings")
+![greeting](images/hello.JPG "greetings")
 
-![farewell](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/bye.JPG "farewells")
+![farewell](images/bye.JPG "farewells")
 
-![unclear](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/unclear.JPG "unclear")
+![unclear](images/unclear.JPG "unclear")
 
-![help](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/help.JPG "help")
+![help](images/help.JPG "help")
 
-![mood](https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/mood.JPG "mood")
+![mood](images/mood.JPG "mood")
 
 ### domain specific questions
 
 ![location](images/location.JPG "location")
 
-![placename singular](#https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_singular.JPG "placename")
+![placename singular](images/placename_singular.JPG "placename")
 
-![placename in sentence](#https://github.com/Tomjg14/Tomjg14.github.io/blob/master/images/placename_sentence.JPG "placename2")
+![placename in sentence](images/placename_sentence.JPG "placename2")
 
 
 ## Future Improvements
